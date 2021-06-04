@@ -1,3 +1,4 @@
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:chatly/screens/chat_screen.dart';
 import 'package:chatly/screens/registration_screen.dart';
 import 'package:chatly/utilities/constants.dart';
@@ -8,7 +9,9 @@ import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 class LoginScreen extends StatelessWidget {
   static const String id = "login_screen";
 
-  LoginScreen({Key? key}) : super(key: key);
+  LoginScreen({
+    Key? key,
+  }) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -18,20 +21,25 @@ class LoginScreen extends StatelessWidget {
   final _auth = FirebaseAuth.instance;
 
   Future<void> _handleSignIn(BuildContext context) async {
-    if (_formKey.currentState!.validate()) {
-      final credential = await _auth.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-
-      if (credential.user != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ChatScreen(user: credential.user!),
-          ),
-        );
+    try {
+      if (_formKey.currentState!.validate()) {
+        final credential = await _auth.signInWithEmailAndPassword(
+            email: _emailController.text.trim(),
+            password: _passwordController.text.trim());
+        if (credential.user != null) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ChatScreen(user: credential.user!),
+            ),
+          );
+        }
       }
+    } catch (e) {
+      showOkAlertDialog(
+          context: context,
+          title: 'Sign in failed',
+          message: 'Please try again');
     }
   }
 
@@ -58,75 +66,86 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(fontFamily: 'VT323', fontSize: 32),
                   ),
                   const SizedBox(height: 64.0),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: TextFormField(
-                      controller: _emailController,
-                      cursorColor: kDarkGrey,
-                      decoration: const InputDecoration(
-                        hintText: 'Email',
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              8.0,
+                  Container(
+                    constraints: const BoxConstraints(maxWidth: 700),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: TextFormField(
+                            controller: _emailController,
+                            cursorColor: kDarkGrey,
+                            decoration: const InputDecoration(
+                              hintText: 'Email',
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    8.0,
+                                  ),
+                                ),
+                              ),
+                              fillColor: Colors.white,
+                              filled: true,
                             ),
                           ),
                         ),
-                        fillColor: Colors.white,
-                        filled: true,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8.0,
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: TextFormField(
-                        controller: _passwordController,
-                        obscureText: true,
-                        cursorColor: kDarkGrey,
-                        decoration: const InputDecoration(
-                          hintText: 'Password',
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(
-                                8.0,
+                        const SizedBox(
+                          height: 8.0,
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: TextFormField(
+                              controller: _passwordController,
+                              obscureText: true,
+                              cursorColor: kDarkGrey,
+                              decoration: const InputDecoration(
+                                hintText: 'Password',
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      8.0,
+                                    ),
+                                  ),
+                                ),
+                                fillColor: Colors.white,
+                                filled: true,
                               ),
                             ),
                           ),
-                          fillColor: Colors.white,
-                          filled: true,
                         ),
-                      ),
+                        const SizedBox(height: 8.0),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: SizedBox(
+                            height: 50,
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all(kDarkGrey)),
+                              onPressed: () => _handleSignIn(context),
+                              child: const Text('Log in'),
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          style: ButtonStyle(
+                            foregroundColor:
+                                MaterialStateProperty.all(kDarkGrey),
+                          ),
+                          onPressed: () => Navigator.pushNamed(
+                            context,
+                            RegistrationScreen.id,
+                          ),
+                          child: const Text("Don't have an account? Sign up"),
+                        ),
+                      ],
                     ),
-                  ),
-                  const SizedBox(height: 8.0),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: SizedBox(
-                      height: 50,
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(kDarkGrey)),
-                        onPressed: () => _handleSignIn(context),
-                        child: const Text('Log in'),
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all(kDarkGrey),
-                    ),
-                    onPressed: () =>
-                        Navigator.pushNamed(context, RegistrationScreen.id),
-                    child: const Text("Don't have an account? Sign up"),
                   ),
                 ],
               ),
