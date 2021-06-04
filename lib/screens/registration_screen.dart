@@ -1,6 +1,4 @@
-import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:chatly/utilities/constants.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 import 'package:validators/validators.dart';
@@ -15,33 +13,6 @@ class RegistrationScreen extends StatelessWidget {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-
-  final _auth = FirebaseAuth.instance;
-
-  Future<void> _handleSignUp(BuildContext context) async {
-    if (_formKey.currentState!.validate()) {
-      try {
-        final credential = await _auth.createUserWithEmailAndPassword(
-          email: _emailController.text.trim(),
-          password: _passwordController.text.trim(),
-        );
-        if (credential.user != null) {
-          await credential.user!.updateDisplayName(_nameController.text.trim());
-          await credential.user!.sendEmailVerification();
-          await showOkAlertDialog(
-              context: context,
-              title: 'Email Sent',
-              message: 'Please verify your email');
-          Navigator.pop(context);
-        }
-      } catch (e) {
-        showOkAlertDialog(
-            context: context,
-            title: 'An error occured',
-            message: 'Please try again');
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -164,7 +135,9 @@ class RegistrationScreen extends StatelessWidget {
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all(kDarkGrey)),
-                              onPressed: () => _handleSignUp(context),
+                              onPressed: () {
+                                // TODO: ADD SIGN UP HANDLER
+                              },
                               child: const Text('Sign up'),
                             ),
                           ),

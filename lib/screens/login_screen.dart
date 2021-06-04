@@ -1,8 +1,5 @@
-import 'package:adaptive_dialog/adaptive_dialog.dart';
-import 'package:chatly/screens/chat_screen.dart';
 import 'package:chatly/screens/registration_screen.dart';
 import 'package:chatly/utilities/constants.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
@@ -17,31 +14,6 @@ class LoginScreen extends StatelessWidget {
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-
-  final _auth = FirebaseAuth.instance;
-
-  Future<void> _handleSignIn(BuildContext context) async {
-    try {
-      if (_formKey.currentState!.validate()) {
-        final credential = await _auth.signInWithEmailAndPassword(
-            email: _emailController.text.trim(),
-            password: _passwordController.text.trim());
-        if (credential.user != null) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ChatScreen(user: credential.user!),
-            ),
-          );
-        }
-      }
-    } catch (e) {
-      showOkAlertDialog(
-          context: context,
-          title: 'Sign in failed',
-          message: 'Please try again');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +100,9 @@ class LoginScreen extends StatelessWidget {
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all(kDarkGrey)),
-                              onPressed: () => _handleSignIn(context),
+                              onPressed: () {
+                                // TODO: ADD SIGN IN HANDLER
+                              },
                               child: const Text('Log in'),
                             ),
                           ),
