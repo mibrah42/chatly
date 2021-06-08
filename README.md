@@ -4,6 +4,8 @@ Real-time chat built with flutter and firebase
 
 [chatly.surge.sh](https://chatly.surge.sh/)
 
+![chatly](https://user-images.githubusercontent.com/26859947/121124061-49da7a00-c7f2-11eb-9d9a-7faac9555bf6.png)
+
 [Slides](https://drive.google.com/file/d/1recG6vNjwrzPPotXuPLeawQU823KGiqP/view?usp=sharing)
 
 ### Get Starter Code
