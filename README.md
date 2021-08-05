@@ -50,3 +50,10 @@ flutter_native_splash:
   assets:
     - assets/images/
 ```
+
+## Firebase web dependencies
+```html
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+```
