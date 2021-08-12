@@ -59,6 +59,15 @@ flutter_native_splash:
         - asset: assets/fonts/VT323-Regular.ttf
 ```
 
+### Constants
+```dart
+import 'package:flutter/material.dart';
+
+const kPurpleColor = Color(0xFFCD84F1);
+const kDarkGrey = Color(0xFF181818);
+const kLightGrey = Color(0xFF212121);
+```
+
 ## Firebase web dependencies
 ```html
 <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
