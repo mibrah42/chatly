@@ -18,37 +18,45 @@ git clone https://github.com/mibrah42/Chatly.git -b starter-code
 
 ```yaml
 dependencies:
+  adaptive_dialog: ^1.0.0
+  cloud_firestore: ^2.2.0
+  firebase_auth: ^1.2.0
+  firebase_core: ^1.2.0
   flutter:
     sdk: flutter
-  dio: ^4.0.0
+  keyboard_dismisser: ^2.0.0
+  timeago: ^3.0.2
+  validators: ^3.0.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.9.0
   flutter_native_splash: ^1.1.8+4
-  lint: ^1.0.0
   flutter_test:
     sdk: flutter
+  lint: ^1.0.0
 
 flutter_icons:
   android: "launcher_icon"
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/images/cryptoapp_logo.png"
-  adaptive_icon_background: "assets/images/cryptoapp_logo.png"
-  adaptive_icon_foreground: "assets/images/cryptoapp_logo.png"
+  image_path: "assets/images/logo.png"
+  adaptive_icon_background: "assets/images/logo.png"
+  adaptive_icon_foreground: "assets/images/logo.png"
 
 flutter_native_splash:
-  color: "#171A1E"
-  image: "assets/images/cryptoapp_logo.png"
+  color: "#CD84F1"
+  image: "assets/images/logo.png"
   android: true
   ios: true
 ```
 
-### Configuring assets
+### Configuring font
 
 ```yaml
-  assets:
-    - assets/images/
+  fonts:
+    - family: VT323
+      fonts:
+        - asset: assets/fonts/VT323-Regular.ttf
 ```
 
 ## Firebase web dependencies
