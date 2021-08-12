@@ -18,22 +18,22 @@ git clone https://github.com/mibrah42/Chatly.git -b starter-code
 
 ```yaml
 dependencies:
-  adaptive_dialog: ^1.0.0
-  cloud_firestore: ^2.2.0
-  firebase_auth: ^1.2.0
-  firebase_core: ^1.2.0
+  adaptive_dialog: ^1.1.0
+  cloud_firestore: ^2.4.0
+  firebase_auth: ^3.0.1
+  firebase_core: ^1.4.0
   flutter:
     sdk: flutter
   keyboard_dismisser: ^2.0.0
-  timeago: ^3.0.2
+  timeago: ^3.1.0
   validators: ^3.0.0
 
 dev_dependencies:
-  flutter_launcher_icons: ^0.9.0
-  flutter_native_splash: ^1.1.8+4
+  flutter_launcher_icons: ^0.9.1
+  flutter_native_splash: ^1.2.1
   flutter_test:
     sdk: flutter
-  lint: ^1.0.0
+  lint: ^1.5.3
 
 flutter_icons:
   android: "launcher_icon"
