@@ -74,3 +74,8 @@ const kLightGrey = Color(0xFF212121);
 <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
 ```
+
+### lint
+```yaml
+include: package:lint/analysis_options.yaml
+```
