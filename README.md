@@ -70,9 +70,9 @@ const kLightGrey = Color(0xFF212121);
 
 ## Firebase web dependencies
 ```html
-<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
 ```
 
 ### lint
