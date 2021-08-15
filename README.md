@@ -6,7 +6,7 @@ Real-time chat built with flutter and firebase
 
 ![chatly](https://user-images.githubusercontent.com/26859947/121124061-49da7a00-c7f2-11eb-9d9a-7faac9555bf6.png)
 
-[Slides and Assets](https://drive.google.com/drive/folders/1ofx4oMNyrpuiUjmVobE5xPaNTHWVbrW5?usp=sharing)
+[Slides and assets](https://drive.google.com/drive/folders/1ofx4oMNyrpuiUjmVobE5xPaNTHWVbrW5?usp=sharing)
 
 ### Get Starter Code
 
