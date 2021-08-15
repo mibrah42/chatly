@@ -6,7 +6,7 @@ Real-time chat built with flutter and firebase
 
 ![chatly](https://user-images.githubusercontent.com/26859947/121124061-49da7a00-c7f2-11eb-9d9a-7faac9555bf6.png)
 
-[Slides](https://drive.google.com/file/d/1recG6vNjwrzPPotXuPLeawQU823KGiqP/view?usp=sharing)
+[Slides and Assets](https://drive.google.com/drive/folders/1ofx4oMNyrpuiUjmVobE5xPaNTHWVbrW5?usp=sharing)
 
 ### Get Starter Code
 
@@ -75,7 +75,7 @@ const kLightGrey = Color(0xFF212121);
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
 ```
 
-### lint
+### Create the file analysis_options.yaml in the root directory and add the following line
 ```yaml
 include: package:lint/analysis_options.yaml
 ```
