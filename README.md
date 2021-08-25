@@ -75,7 +75,7 @@ const kLightGrey = Color(0xFF212121);
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
 ```
 
-### Create the file analysis_options.yaml in the root directory and add the following line
+### Create the file `analysis_options.yaml` in the root directory and add the following line
 ```yaml
 include: package:lint/analysis_options.yaml
 ```
